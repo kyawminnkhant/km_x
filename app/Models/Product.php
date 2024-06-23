@@ -20,4 +20,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'categoryId');
     }
+
+    public function inventoryTransactions()
+    {
+        return $this->hasMany(InventoryTransactions::class, 'productId');
+    }
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class, 'productId');
+    }
 }
